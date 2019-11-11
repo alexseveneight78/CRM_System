@@ -3,7 +3,7 @@
     <app-button></app-button>
     <div class="container">
       <app-list></app-list>
-      <app-structure></app-structure>
+      <app-departments></app-departments>
     </div>
   </div>
 </template>
@@ -11,13 +11,13 @@
 <script>
 import List from "./employees/EmployeesList";
 import AddButton from "./employees/AddNewEmployee";
-import Structure from "./employees/Structure";
+import Departments from "./employees/Departments";
 
 export default {
   components: {
     appList: List,
     appButton: AddButton,
-    appStructure: Structure
+    appDepartments: Departments
   }
 };
 </script>
