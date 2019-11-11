@@ -3,38 +3,37 @@
     <header>
       <app-navigation></app-navigation>
     </header>
-    <hr>
+    <hr />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Home from './components/Home';
-  import Navigation from './components/Navigation';
+import Home from "./components/Home";
+import Navigation from "./components/Navigation";
 
-
-
-  export default {
-    components: {
-      appHome: Home,
-      appNavigation: Navigation
-    },
-    data () {
-      return {
-        
-      }
-    }
+export default {
+  components: {
+    appHome: Home,
+    appNavigation: Navigation
+  },
+  data() {
+    return {};
+  },
+  created() {
+    this.$store.dispatch("initializeEmployees");
   }
+};
 </script>
 
 <style lang="scss">
-  .app {
-    text-align: center;
+.app {
+  text-align: center;
 
-    header {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-    }
+  header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
   }
+}
 </style>

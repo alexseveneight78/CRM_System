@@ -91,8 +91,10 @@ export default {
       }
     },
     createEmployee() {
-      this.checkIfFilled();
-      // add a new employee to database
+      if (!this.checkIfFilled()) {
+        axios.post("https://mybeecrm.firebaseio.com/employees.json");
+      }
+
       this.show = false;
     }
   }
