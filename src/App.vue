@@ -19,10 +19,10 @@ export default {
   },
   data() {
     return {};
-  },
-  created() {
-    this.$store.dispatch("initializeEmployees");
   }
+  // created() {
+  //   this.$store.dispatch("initializeEmployees");
+  // }
 };
 </script>
 

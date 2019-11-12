@@ -3,8 +3,8 @@
     <span>List</span>
     <input type="text" v-model="search" />
     <ul>
-      <li v-for="item in filteredList" :key="item.id">
-        <a href>{{ item.id + '. ' + item.firstName + ' ' + item.lastName }}</a>
+      <li v-for="worker in filteredList" :key="worker.id">
+        <a href>{{ worker.firstName + ' ' + worker.lastName}}</a>
       </li>
     </ul>
   </div>
@@ -103,9 +103,12 @@ export default {
       return this.$store.getters.employees;
     },
     filteredList() {
-      return this.$store.getters.employees.map(item => {
-        console.log(item);
-      });
+      return this.employees[0].filter(item => {
+        return item.firstName.toLowerCase().includes(this.search.toLowerCase()) || item.lastName.toLowerCase().includes(this.search.toLowerCase());
+        // fixed! 1) this.employees is an array with index 0; 
+        // 2) the list of employees is received from the server using an async request; 
+        // 3) getting a request from the server is better in THE 'CompanyStructure.vue' file while 'created'
+      }) 
     }
   }
 };

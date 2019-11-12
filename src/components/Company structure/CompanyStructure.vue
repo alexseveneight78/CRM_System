@@ -18,8 +18,10 @@ export default {
     appList: List,
     appButton: AddButton,
     appDepartments: Departments
-  }
-};
+  },
+  created() {
+    this.$store.dispatch("initializeEmployees");
+  }};
 </script>
 
 <style lang="scss" scoped>

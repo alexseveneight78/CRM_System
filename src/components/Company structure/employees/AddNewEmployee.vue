@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -93,9 +95,10 @@ export default {
     createEmployee() {
       if (!this.checkIfFilled()) {
         axios.post("https://mybeecrm.firebaseio.com/employees.json");
+        this.show = false;
+      } else {
+        this.checkIfFilled();
       }
-
-      this.show = false;
     }
   }
 };
