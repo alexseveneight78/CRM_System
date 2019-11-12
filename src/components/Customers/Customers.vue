@@ -1,6 +1,14 @@
 <template>
     <div>
-        <h3>Customers</h3>
+        <header>
+            <ul>
+                <li>Actual clients</li>
+                <li>Archive</li>
+                <li>Create client</li>
+                <li>Problem clients</li>
+                <li>Filters</li>
+            </ul>
+        </header>
     </div>
 </template>
 

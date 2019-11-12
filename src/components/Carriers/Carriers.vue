@@ -1,6 +1,14 @@
 <template>
     <div>
-        <h3>Carriers</h3>
+        <header>
+            <ul>
+                <li>Actual carriers</li>
+                <li>Archive</li>
+                <li>Create carrier</li>
+                <li>Problem carriers</li>
+                <li>Filters</li>
+            </ul>
+        </header>
     </div>
 </template>
 

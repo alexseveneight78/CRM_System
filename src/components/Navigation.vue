@@ -1,5 +1,8 @@
 <template>
     <div id="navigation">
+        <div id="logo">
+            <img src="../images/honeycomb.png" alt="">
+        </div>
         <ul>
             <router-link to="/customers" tag="li"><a href="">Customers</a></router-link>
             <router-link to="/carriers" tag="li"><a href="">Carriers</a></router-link>
@@ -13,7 +16,11 @@
 
 <script>
     export default {
-        
+        data(){
+            return {
+                logo: ''
+            }
+        }
     }
 </script>
 
@@ -22,6 +29,16 @@
     #navigation {
         width: 100%;
         background-color: 	rgb(153, 102, 102);
+            #logo {
+                width: 100px;
+                position: relative;
+                top: 8px;
+                left: 5px;
+             img {
+                width: 32px;
+                height: 32px;
+                }
+            }
 
             ul {
                 padding: 0;
