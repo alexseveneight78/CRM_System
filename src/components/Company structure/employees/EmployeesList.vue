@@ -3,9 +3,9 @@
     <span>List</span>
     <input type="text" v-model="search" />
     <ul>
-      <li v-for="worker in filteredList" :key="worker.id">
+      <router-link v-for="worker in filteredList" :key="worker.id" tag="li" to="/employee/:id">
         <a href>{{ worker.firstName + ' ' + worker.lastName}}</a>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
