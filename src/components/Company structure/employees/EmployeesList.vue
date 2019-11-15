@@ -3,8 +3,14 @@
     <span>List</span>
     <input type="text" v-model="search" />
     <ul>
-      <router-link v-for="employee in filteredList" :key="employee.id" tag="li" to="/employee">
-        <a href>{{ employee.firstName + ' ' + employee.lastName}}</a>
+      <router-link 
+        v-for="employee in filteredList" 
+        :key="employee.id" 
+         tag="li" 
+        :to="{ path: 'company-structure/employees/' + employee.id }"
+        :user="employee"
+        >
+        <a href>{{ employee.firstName + ' ' + employee.lastName }}</a>
       </router-link>
     </ul>
   </div>
@@ -110,6 +116,9 @@ export default {
         // 3) getting a request from the server is better in THE 'CompanyStructure.vue' file while 'created'
       }) 
     }
+  },
+    created(){
+    console.log(this.$router.app)
   }
 };
 </script>

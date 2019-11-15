@@ -4,6 +4,8 @@
     <router-link to="/company-structure/departments" tag="a">Departments</router-link>
     <div class="container">
       <app-list></app-list>
+      <router-link to="/company-structure/employees/10" tag="a">Employees ID</router-link>
+      <router-link to="/company-structure/employees/11" tag="a">Employees ID</router-link>
     </div>
     <router-view></router-view>
   </div>
@@ -25,7 +27,8 @@ export default {
   },
   created() {
     this.$store.dispatch("initializeEmployees");
-  }};
+  }
+  };
 </script>
 
 <style lang="scss" scoped>
