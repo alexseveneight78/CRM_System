@@ -4,31 +4,32 @@
     <router-link to="/company-structure/departments" tag="a">Departments</router-link>
     <div class="container">
       <app-list></app-list>
-      <router-link to="/company-structure/employees/10" tag="a">Employees ID</router-link>
-      <router-link to="/company-structure/employees/11" tag="a">Employees ID</router-link>
+      <!-- <router-link to="/company-structure/employees/10" tag="a">Employees ID</router-link>
+      <router-link to="/company-structure/employees/11" tag="a">Employees ID</router-link>-->
+      <router-view></router-view>
     </div>
-    <router-view></router-view>
+    <!-- <app-employee></app-employee> -->
   </div>
 </template>
 
 <script>
 import List from "./employees/EmployeesList";
 import AddButton from "./employees/AddNewEmployee";
-import Departments from "./employees/Departments";
-import Employee from './employees/Employee';
-import EmployeesListVue from './employees/EmployeesList.vue';
+//import Departments from "./employees/Departments";
+import Employee from "./employees/Employee";
+import EmployeesListVue from "./employees/EmployeesList.vue";
 
 export default {
   components: {
     appList: List,
     appButton: AddButton,
-    appDepartments: Departments,
+    //appDepartments: Departments
     appEmployee: Employee
   },
   created() {
     this.$store.dispatch("initializeEmployees");
   }
-  };
+};
 </script>
 
 <style lang="scss" scoped>

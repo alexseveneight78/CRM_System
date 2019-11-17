@@ -2,8 +2,9 @@ import Home from "../components/Home";
 import Carriers from "../components/Carriers/Carriers";
 import CompanyStructure from "../components/Company structure/CompanyStructure";
 
-import Departments from '../components/Company structure/employees/Departments';
-import Employee from '../components/Company structure/employees/Employee';
+import Departments from "../components/Company structure/employees/Departments";
+import Employee from "../components/Company structure/employees/Employee";
+import EmployeesList from "../components/Company structure/employees/EmployeesList";
 
 import Customers from "../components/Customers/Customers";
 import Orders from "../components/Orders/Orders";
@@ -13,10 +14,13 @@ import SalaryMotivation from "../components/Salary+Motivation/Salary+Motivation"
 export const routes = [
   { path: "/", component: Home },
   { path: "/carriers", component: Carriers },
-  { path: "/company-structure", component: CompanyStructure, children: [
-    { path: "departments", component: Departments },
-    { path: "employees/:id", component: Employee }
-  ] 
+  {
+    path: "/company-structure",
+    component: CompanyStructure,
+    children: [
+      { path: "departments", component: Departments },
+      { path: "employees/:id", name: "employee", component: Employee }
+    ]
   },
   { path: "/customers", component: Customers },
   { path: "/orders", component: Orders },
