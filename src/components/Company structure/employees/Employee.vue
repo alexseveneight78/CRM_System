@@ -5,16 +5,16 @@
     <button @click="saveEditedData">Save edited data</button>
     <p>
       Loaded ID:
-      <span class="edit_employee">{{ $route.params.id }}</span>
+      <span>{{ $route.params.id }}</span>
     </p>
     <ul>
       <li>
         First Name:
-        <span class="edit_employee">{{ $route.params.firstName }}</span>
+        <input class="edit_employee" v-model="$route.params.firstName" disabled>
       </li>
       <li>
         Last Name:
-        <span class="edit_employee">{{ $route.params.lastName }}</span>
+        <input class="edit_employee" v-model="$route.params.lastName" disabled>
       </li>
       <li>
         Date of employment:
@@ -42,7 +42,7 @@
       </li>
       <li>
         Position:
-        <span class="edit_employee">{{ $route.params.position }}</span>
+        <input class="edit_employee" v-model="$route.params.position ">
       </li>
     </ul>
   </div>
@@ -61,10 +61,10 @@ export default {
   },
   methods: {
     editEmployee() {
-      let data = document.querySelectorAll(".edit_employee");
-      console.log(typeof data);
-      for (let key in data) {
-        data[key].contentEditable = true;
+      let inputs = document.querySelectorAll('.edit_employee');
+      console.dir(inputs);
+      for(let key in inputs) {
+        inputs[key].disabled = false;
       }
     },
     saveEditedData() {}
