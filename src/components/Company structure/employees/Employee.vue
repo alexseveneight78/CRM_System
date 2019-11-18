@@ -1,7 +1,7 @@
 <template>
   <div class="employee">
     <h4>Employee component</h4>
-    <button @click="editEmployee">Edit data</button>
+    <button @click="isDisabled = !isDisabled">Edit data</button>
     <button @click="saveEditedData">Save edited data</button>
     <p>
       Loaded ID:
@@ -10,39 +10,71 @@
     <ul>
       <li>
         First Name:
-        <input class="edit_employee" v-model="$route.params.firstName" disabled>
+        <input
+          class="edit_employee"
+          v-model="$route.params.firstName"
+          :disabled="isDisabled"
+        />
       </li>
       <li>
         Last Name:
-        <input class="edit_employee" v-model="$route.params.lastName" disabled>
+        <input
+          class="edit_employee"
+          v-model="$route.params.lastName"
+          :disabled="isDisabled"
+        />
       </li>
       <li>
         Date of employment:
-        <span class="edit_employee">{{ $route.params.employmentDate }}</span>
+        <input
+          class="edit_employee"
+          v-model="$route.params.employmentDate"
+          :disabled="isDisabled"
+        />
       </li>
       <li>
         Email:
-        <span class="edit_employee">{{ $route.params.email }}</span>
+        <input class="edit_employee" v-model="$route.params.email" :disabled="isDisabled" />
       </li>
       <li>
         Mobile phone:
-        <span class="edit_employee">{{ $route.params.mobile }}</span>
+        <input
+          class="edit_employee"
+          v-model="$route.params.mobile"
+          :disabled="isDisabled"
+        />
       </li>
       <li>
         Salary netto:
-        <span class="edit_employee">{{ $route.params.salaryNetto }}$</span>
+        <input
+          class="edit_employee"
+          v-model="$route.params.salaryNetto"
+          :disabled="isDisabled"
+        /> $
       </li>
       <li>
         Salary brutto:
-        <span class="edit_employee">{{ $route.params.salaryBrutto }}$</span>
+        <input
+          class="edit_employee"
+          v-model="$route.params.salaryBrutto"
+          :disabled="$route.params.salaryBrutto"
+        /> $
       </li>
       <li>
         Department:
-        <span class="edit_employee">{{ $route.params.department }}</span>
+        <input
+          class="edit_employee"
+          v-model="$route.params.department"
+          :disabled="isDisabled"
+        />
       </li>
       <li>
         Position:
-        <input class="edit_employee" v-model="$route.params.position ">
+        <input
+          class="edit_employee"
+          v-model="$route.params.position"
+          :disabled="isDisabled"
+        />
       </li>
     </ul>
   </div>
@@ -53,21 +85,20 @@ export default {
   //   props: ["user"],
   data() {
     return {
-      id: this.$route.params.id
+      id: this.$route.params.id,
+      isDisabled: true
     };
   },
   updated() {
     console.log("Component Employee is updated!", this.$route.params);
   },
   methods: {
-    editEmployee() {
-      let inputs = document.querySelectorAll('.edit_employee');
-      console.dir(inputs);
-      for(let key in inputs) {
-        inputs[key].disabled = false;
-      }
-    },
-    saveEditedData() {}
+    saveEditedData() {
+      console.log(this.$route.params.id);
+      // 1. find a current user by id
+      // 2. check if a changed info doesn`t match an existing data at server side
+      // 3. use PUT method to update info at server side
+    }
   }
   //   watch: {
   //     $route(to, from) {
