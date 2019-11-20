@@ -8,23 +8,32 @@
           :key="employee.id"
           :to="{ path: 'company-structure/employees/' + employee.id, name: 'employee', params: employee }"
         >
-          <a href>{{ employee.firstName + ' ' + employee.lastName }}</a>
+          <a>{{ employee.firstName + ' ' + employee.lastName }}</a>
         </router-link>
       </ul>
     </div>
     <div class="department">
       <h4>Sales</h4>
       <ul>
-        <li v-for="worker in sales">
-          <a href>{{ worker }}</a>
-        </li>
+        <router-link
+          v-for="employee in sales"
+          :key="employee.id"
+          :to="{ path: 'company-structure/employees/' + employee.id, name: 'employee', params: employee }"
+        >
+          <a>{{ employee.firstName + ' ' + employee.lastName }}</a>
+        </router-link>
       </ul>
     </div>
     <div class="department">
       <h4>HR</h4>
       <ul>
-        <li v-for="worker in HR">
-          <a href>{{ worker }}</a>
+        <router-link
+          v-for="employee in HR"
+          :key="employee.id"
+          :to="{ path: }"
+        >
+
+        </router-link>
         </li>
       </ul>
     </div>
@@ -69,31 +78,31 @@ export default {
       });
     },
     sales() {
-      return this.employees[0].map(item => {
+      return this.employees[0].filter(item => {
         return item.department === "Sales"
-          ? `${item.firstName + " " + item.lastName}`
-          : "";
+          ? item
+          : null;
       });
     },
     HR() {
       return this.employees[0].map(item => {
         return item.department === "HR"
-          ? `${item.firstName + " " + item.lastName}`
-          : "";
+          ? item
+          : null;
       });
     },
     IT() {
       return this.employees[0].map(item => {
         return item.department === "IT"
-          ? `${item.firstName + " " + item.lastName}`
-          : "";
+          ? item
+          : null;
       });
     },
     accounting() {
       return this.employees[0].map(item => {
         return item.department === "Accounting"
-          ? `${item.firstName + " " + item.lastName}`
-          : "";
+          ? item
+          : null;
       });
     }
   }
