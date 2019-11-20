@@ -8,7 +8,7 @@
           :key="employee.id"
           :to="{ path: 'company-structure/employees/' + employee.id, name: 'employee', params: employee }"
         >
-          <a href>{{ employee }}</a>
+          <a href>{{ employee.firstName + ' ' + employee.lastName }}</a>
         </router-link>
       </ul>
     </div>
@@ -62,10 +62,10 @@ export default {
       return this.$store.getters.employees;
     },
     topManagement() {
-      return this.employees[0].map(item => {
+      return this.employees[0].filter(item => {
         return item.department === "Top management"
-          ? `${item.firstName + " " + item.lastName}`
-          : "";
+          ? item
+          : null;
       });
     },
     sales() {

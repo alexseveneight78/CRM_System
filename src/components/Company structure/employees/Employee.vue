@@ -57,7 +57,7 @@
         <input
           class="edit_employee"
           v-model="$route.params.salaryBrutto"
-          :disabled="$route.params.salaryBrutto"
+          :disabled="isDisabled"
         /> $
       </li>
       <li>
