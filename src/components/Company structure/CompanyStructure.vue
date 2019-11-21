@@ -16,7 +16,7 @@
 import List from "./employees/EmployeesList";
 import AddButton from "./employees/AddNewEmployee";
 //import Departments from "./employees/Departments";
-import Employee from "./employees/Employee";
+//import Employee from "./employees/Employee";
 import EmployeesListVue from "./employees/EmployeesList.vue";
 
 export default {
@@ -24,7 +24,7 @@ export default {
     appList: List,
     appButton: AddButton,
     //appDepartments: Departments
-    appEmployee: Employee
+    //appEmployee: Employee
   },
   created() {
     this.$store.dispatch("initializeEmployees");

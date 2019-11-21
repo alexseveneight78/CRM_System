@@ -28,29 +28,36 @@
       <h4>HR</h4>
       <ul>
         <router-link
-          v-for="employee in HR"
+          v-for="employee in hr"
           :key="employee.id"
-          :to="{ path: }"
+          :to="{ path: 'company-structure/employees/' + employee.id, name: 'employee',  params: employee }"
         >
-
+        <a> {{ employee.firstName + ' ' + employee.lastName }}</a>
         </router-link>
-        </li>
       </ul>
     </div>
     <div class="department">
       <h4>IT</h4>
       <ul>
-        <li v-for="worker in IT">
-          <a href>{{ worker }}</a>
-        </li>
+        <router-link
+          v-for="employee in it"
+          :key="employee.id"
+          :to="{ path: 'company-structure/employees' + employee.id, name: 'employee', params: employee }"
+        >
+          <a>{{ employee.firstName + ' ' + employee.lastName }}</a>
+        </router-link>
       </ul>
     </div>
     <div class="department">
       <h4>Accounting</h4>
       <ul>
-        <li v-for="worker in accounting">
-          <a href>{{ worker }}</a>
-        </li>
+        <router-link
+          v-for="employee in accounting"
+          :key="employee.id"
+          :to="{ path: 'company-structure/employees' + employee.id, name: 'employee', params: employee }"
+        >
+          <a>{{ employee.firstName + ' ' + employee.lastName }}</a><br>
+          </router-link>
       </ul>
     </div>
   </div>
@@ -84,22 +91,22 @@ export default {
           : null;
       });
     },
-    HR() {
-      return this.employees[0].map(item => {
+    hr() {
+      return this.employees[0].filter(item => {
         return item.department === "HR"
           ? item
           : null;
       });
     },
-    IT() {
-      return this.employees[0].map(item => {
+    it() {
+      return this.employees[0].filter(item => {
         return item.department === "IT"
           ? item
           : null;
       });
     },
     accounting() {
-      return this.employees[0].map(item => {
+      return this.employees[0].filter(item => {
         return item.department === "Accounting"
           ? item
           : null;
