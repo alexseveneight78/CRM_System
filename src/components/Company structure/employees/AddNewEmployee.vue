@@ -64,6 +64,7 @@ export default {
   data() {
     return {
       show: false,
+      newEmployeeID: '',
       newEmployeeFirstName: "",
       newEmployeeLastName: "",
       newEmployeeEmploymentDate: "",
@@ -72,7 +73,8 @@ export default {
       newEmployeeSalaryNetto: "",
       newEmployeeSalaryBrutto: "",
       newEmployeeDepartment: "",
-      newEmployeePosition: ""
+      newEmployeePosition: "",
+      newEmployee: []
     };
   },
   methods: {
@@ -90,6 +92,18 @@ export default {
       ) {
         alert("Not all fields are filled!");
         return false;
+      } else {
+        this.newEmployee.push(
+          this.newEmployeeFirstName,
+          this.newEmployeeLastName,
+          this.newEmployeeEmploymentDate,
+          this.newEmployeeEmail,
+          this.newEmployeeMobile,
+          this.newEmployeeSalaryNetto,
+          this.newEmployeeSalaryBrutto,
+          this.newEmployeeDepartment,
+          this.newEmployeePosition)
+        console.log(this.newEmployee)
       }
     },
     createEmployee() {
