@@ -32,7 +32,7 @@
           :key="employee.id"
           :to="{ path: 'company-structure/employees/' + employee.id, name: 'employee',  params: employee }"
         >
-        <a> {{ employee.firstName + ' ' + employee.lastName }}</a>
+          <a>{{ employee.firstName + ' ' + employee.lastName }}</a>
         </router-link>
       </ul>
     </div>
@@ -56,8 +56,9 @@
           :key="employee.id"
           :to="{ path: 'company-structure/employees' + employee.id, name: 'employee', params: employee }"
         >
-          <a>{{ employee.firstName + ' ' + employee.lastName }}</a><br>
-          </router-link>
+          <a>{{ employee.firstName + ' ' + employee.lastName }}</a>
+          <br />
+        </router-link>
       </ul>
     </div>
   </div>
@@ -79,37 +80,27 @@ export default {
     },
     topManagement() {
       return this.employees[0].filter(item => {
-        return item.department === "Top management"
-          ? item
-          : null;
+        return item.department === "Top management" ? item : null;
       });
     },
     sales() {
       return this.employees[0].filter(item => {
-        return item.department === "Sales"
-          ? item
-          : null;
+        return item.department === "Sales" ? item : null;
       });
     },
     hr() {
       return this.employees[0].filter(item => {
-        return item.department === "HR"
-          ? item
-          : null;
+        return item.department === "HR" ? item : null;
       });
     },
     it() {
       return this.employees[0].filter(item => {
-        return item.department === "IT"
-          ? item
-          : null;
+        return item.department === "IT" ? item : null;
       });
     },
     accounting() {
       return this.employees[0].filter(item => {
-        return item.department === "Accounting"
-          ? item
-          : null;
+        return item.department === "Accounting" ? item : null;
       });
     }
   }

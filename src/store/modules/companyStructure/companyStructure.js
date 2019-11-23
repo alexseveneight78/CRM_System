@@ -1,7 +1,7 @@
-import employeesData from "../../../dataFromServer/employees.js";
+import users from "../../../dataFromServer/employees.js";
 
 const state = {
-  employees: []
+  employees: {}
 };
 
 const getters = {
@@ -11,14 +11,14 @@ const getters = {
 };
 
 const mutations = {
-  setEmployees(state, employeesData) {
-    state.employees = employeesData;
+  setEmployees(state, users) {
+    state.employees = users;
   }
 };
 
 const actions = {
   initializeEmployees: ({ commit }) => {
-    commit("setEmployees", employeesData);
+    commit("setEmployees", users);
   }
 };
 

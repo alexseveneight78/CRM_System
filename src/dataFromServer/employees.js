@@ -9,7 +9,8 @@ let employees = axios
 
     for (let key in data) {
       users.push(data[key]);
+      //console.log(data[key]);
     }
-    //console.log(users[0]);
+    //console.log(users);
   });
 export default users;

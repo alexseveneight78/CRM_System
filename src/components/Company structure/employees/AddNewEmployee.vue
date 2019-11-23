@@ -58,13 +58,13 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   data() {
     return {
       show: false,
-      newEmployeeID: '',
+      newEmployeeID: "",
       newEmployeeFirstName: "",
       newEmployeeLastName: "",
       newEmployeeEmploymentDate: "",
@@ -93,6 +93,8 @@ export default {
         alert("Not all fields are filled!");
         return false;
       } else {
+        // import from dataFromServer
+
         this.newEmployee.push(
           this.newEmployeeFirstName,
           this.newEmployeeLastName,
@@ -102,17 +104,27 @@ export default {
           this.newEmployeeSalaryNetto,
           this.newEmployeeSalaryBrutto,
           this.newEmployeeDepartment,
-          this.newEmployeePosition)
-        console.log(this.newEmployee)
+          this.newEmployeePosition,
+          (this.newEmployeeID = "111")
+        );
       }
     },
     createEmployee() {
       if (!this.checkIfFilled()) {
-        axios.post("https://mybeecrm.firebaseio.com/employees.json");
+        axios.post(
+          "https://mybeecrm.firebaseio.com/employees.json",
+          this.newEmployee
+        );
         this.show = false;
       } else {
         this.checkIfFilled();
       }
+    }
+  },
+  created() {
+    let users = this.$store.getters.employees;
+    for (let key in users) {
+      console.log(users[key]);
     }
   }
 };

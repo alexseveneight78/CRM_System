@@ -45,7 +45,7 @@ export default {
       return this.$store.getters.employees;
     },
     filteredList() {
-      return this.employees[0].filter(item => {
+      return this.employees.filter(item => {
         return (
           item.firstName.toLowerCase().includes(this.search.toLowerCase()) ||
           item.lastName.toLowerCase().includes(this.search.toLowerCase())
