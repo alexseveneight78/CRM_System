@@ -22,12 +22,13 @@ import EmployeesListVue from "./employees/EmployeesList.vue";
 export default {
   components: {
     appList: List,
-    appButton: AddButton,
+    appButton: AddButton
     //appDepartments: Departments
     //appEmployee: Employee
   },
   created() {
     this.$store.dispatch("initializeEmployees");
+    console.log(this.$store.getters.employees.length);
   }
 };
 </script>

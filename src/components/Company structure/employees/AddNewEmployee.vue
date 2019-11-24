@@ -74,7 +74,7 @@ export default {
       newEmployeeSalaryBrutto: "",
       newEmployeeDepartment: "",
       newEmployeePosition: "",
-      newEmployee: []
+      newEmployee: {}
     };
   },
   methods: {
@@ -95,18 +95,17 @@ export default {
       } else {
         // import from dataFromServer
 
-        this.newEmployee.push(
-          this.newEmployeeFirstName,
-          this.newEmployeeLastName,
-          this.newEmployeeEmploymentDate,
-          this.newEmployeeEmail,
-          this.newEmployeeMobile,
-          this.newEmployeeSalaryNetto,
-          this.newEmployeeSalaryBrutto,
-          this.newEmployeeDepartment,
-          this.newEmployeePosition,
-          (this.newEmployeeID = "111")
-        );
+        this.newEmployee.id = this.$store.getters.employees.length + 1;
+        this.newEmployee.firstName = this.newEmployeeFirstName;
+        this.newEmployee.lastName = this.newEmployeeLastName;
+        this.newEmployee.employmentDate = this.newEmployeeEmploymentDate;
+        this.newEmployee.email = this.newEmployeeEmail;
+        this.newEmployee.mobile = this.newEmployeeMobile;
+        this.newEmployee.salaryNetto = this.newEmployeeSalaryNetto;
+        this.newEmployee.salaryNetto = this.newEmployeeSalaryNetto;
+        this.newEmployee.salaryBrutto = this.newEmployeeSalaryBrutto;
+        this.newEmployee.department = this.newEmployeeDepartment;
+        this.newEmployee.position = this.newEmployeePosition;
       }
     },
     createEmployee() {
