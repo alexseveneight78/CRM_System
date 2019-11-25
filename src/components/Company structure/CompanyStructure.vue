@@ -28,7 +28,6 @@ export default {
   },
   created() {
     this.$store.dispatch("initializeEmployees");
-    console.log(this.$store.getters.employees.length);
   }
 };
 </script>

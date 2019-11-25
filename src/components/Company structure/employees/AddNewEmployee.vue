@@ -115,15 +115,19 @@ export default {
           this.newEmployee
         );
         this.show = false;
+        window.location.reload();
       } else {
         this.checkIfFilled();
       }
     }
   },
   created() {
+    console.log('Created lifecycle hook')
+    console.log('Length ',this.$store.getters.employees.length);
+
     let users = this.$store.getters.employees;
     for (let key in users) {
-      console.log(users[key]);
+      //console.log(users[key]);
     }
   }
 };
