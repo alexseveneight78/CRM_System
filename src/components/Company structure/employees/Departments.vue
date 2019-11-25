@@ -9,6 +9,7 @@
           :to="{ path: 'company-structure/employees/' + employee.id, name: 'employee', params: employee }"
         >
           <a>{{ employee.firstName + ' ' + employee.lastName }}</a>
+          <br />
         </router-link>
       </ul>
     </div>
@@ -79,28 +80,28 @@ export default {
       return this.$store.getters.employees;
     },
     topManagement() {
-      return this.employees[0].filter(item => {
-        return item.department === "Top management" ? item : null;
+      return this.employees.filter(item => {
+        return item.department === "top-management" ? item : null;
       });
     },
     sales() {
-      return this.employees[0].filter(item => {
-        return item.department === "Sales" ? item : null;
+      return this.employees.filter(item => {
+        return item.department === "sales" ? item : null;
       });
     },
     hr() {
-      return this.employees[0].filter(item => {
-        return item.department === "HR" ? item : null;
+      return this.employees.filter(item => {
+        return item.department === "hr" ? item : null;
       });
     },
     it() {
-      return this.employees[0].filter(item => {
-        return item.department === "IT" ? item : null;
+      return this.employees.filter(item => {
+        return item.department === "it" ? item : null;
       });
     },
     accounting() {
-      return this.employees[0].filter(item => {
-        return item.department === "Accounting" ? item : null;
+      return this.employees.filter(item => {
+        return item.department === "accounting" ? item : null;
       });
     }
   }

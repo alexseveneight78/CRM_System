@@ -115,20 +115,18 @@ export default {
           this.newEmployee
         );
         this.show = false;
-        window.location.reload();
+        //window.location.reload();
       } else {
         this.checkIfFilled();
       }
     }
   },
   created() {
-    console.log('Created lifecycle hook')
-    console.log('Length ',this.$store.getters.employees.length);
+    console.log("Created lifecycle hook");
+    console.log("Length ", this.$store.getters.employees.length);
 
-    let users = this.$store.getters.employees;
-    for (let key in users) {
-      //console.log(users[key]);
-    }
+    // how to refresh a page making server-side data reactive???
+    // push the button >>> entering the next data about a new employee >>> ID for a new employee is taken from a renewed info from a server
   }
 };
 </script>

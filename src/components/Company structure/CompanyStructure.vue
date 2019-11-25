@@ -12,6 +12,8 @@
   </div>
 </template>
 
+// HOW TO LOG ALL CHANGES IN THE COMPONENT???!!!
+
 <script>
 import List from "./employees/EmployeesList";
 import AddButton from "./employees/AddNewEmployee";
